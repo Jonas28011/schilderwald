@@ -52,6 +52,10 @@ keine Pfade vom Rechner und keine Zugangsdaten hineinschreiben.
 
 ## Veröffentlichung
 
+- Artefakt veröffentlichen: mit `file_path` = `artefakt/index.html`, `root` = `app/`
+  und den geänderten Dateien in `files`; vorher mit `action: "list"`, `scope: "files"`
+  den Stand ansehen. Läuft die Sitzung in einem anderen Ordner, erst in den
+  Scratchpad kopieren – das Werkzeug liest nur dort und im Arbeitsordner.
 - Website: https://jonas28011.github.io/schilderwald/ – seit 20.09.2026 über
   GitHub Pages aus dem Ordner `app/` (Workflow `.github/workflows/pages.yml`).
   Jeder Push auf `main` veröffentlicht neu.
