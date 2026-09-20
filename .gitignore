@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+werkzeuge/png/
+werkzeuge/svg/
+
+# persönliche Notizen bleiben lokal
+NOTIZEN.local.md

@@ -1,0 +1,13 @@
+import fs from 'fs';
+const [,, inp, out] = process.argv;
+let h = new TextDecoder('latin1').decode(fs.readFileSync(inp));
+h = h.replace(/<script[\s\S]*?<\/script>/gi,'').replace(/<style[\s\S]*?<\/style>/gi,'');
+h = h.replace(/<img[^>]*alt="([^"]*)"[^>]*>/gi,' [BILD: $1] ');
+h = h.replace(/<img[^>]*src="([^"]*)"[^>]*>/gi,' [BILD-SRC: $1] ');
+h = h.replace(/<(br|\/p|\/div|\/tr|\/h\d|\/dd|\/dt|\/li)[^>]*>/gi,'\n');
+h = h.replace(/<\/t[dh]>/gi,' | ');
+h = h.replace(/<[^>]+>/g,'');
+h = h.replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#(\d+);/g,(m,n)=>String.fromCharCode(+n)).replace(/&#x([0-9a-f]+);/gi,(m,n)=>String.fromCharCode(parseInt(n,16)));
+h = h.split('\n').map(l=>l.replace(/[ \t]+/g,' ').trim()).filter(l=>l).join('\n');
+fs.writeFileSync(out, h, 'utf8');
+console.log(h.length);

@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- nur-web -->
+<meta name="theme-color" content="#0A4E9B">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Schilderwald">
+<meta name="robots" content="noindex, nofollow">
+<!-- /nur-web -->
+<title>Schilderwald</title>
+<meta name="description" content="Führerschein-Theorie auffrischen: Verkehrszeichen, Vorfahrt, Faustformeln und Zahlen nach der StVO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --grund: #EDF0F3;
+  --flaeche: #FFFFFF;
+  --flaeche-2: #E2E7EC;
+  --flaeche-3: #D3DAE2;
+  --tinte: #13202C;
+  --tinte-2: #465565;
+  --tinte-3: #6B7886;
+  --linie: #D2D9E0;
+  --akzent: #0A4E9B;
+  --akzent-hell: #DCE8F6;
+  --akzent-tinte: #FFFFFF;
+  --gelb: #F5C400;
+  --gelb-tinte: #161616;
+  --gut: #0D7A43;
+  --gut-hell: #DDF1E6;
+  --schlecht: #B3261E;
+  --schlecht-hell: #FBE3E1;
+  --umgebung: #DCE3D6;
+  --pfosten: #9AA3AC;
+  --serie-1: #2a78d6;
+  --serie-2: #eb6834;
+  --gitter: #E6EAEE;
+  --schatten: 0 1px 2px rgba(19, 32, 44, .06), 0 6px 18px rgba(19, 32, 44, .06);
+  --display: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  --zahl: 'Barlow Semi Condensed', 'Arial Narrow', Arial, sans-serif;
+  --text: 'Atkinson Hyperlegible', 'Segoe UI', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --grund: #11161B;
+    --flaeche: #1A2128;
+    --flaeche-2: #242D36;
+    --flaeche-3: #2F3A45;
+    --tinte: #EAF0F5;
+    --tinte-2: #AAB7C3;
+    --tinte-3: #8391A0;
+    --linie: #2E3945;
+    --akzent: #6FA8F0;
+    --akzent-hell: #1E3450;
+    --akzent-tinte: #0B1522;
+    --gut: #4CC98A;
+    --gut-hell: #173526;
+    --schlecht: #FF8A80;
+    --schlecht-hell: #3D1F1D;
+    --umgebung: #26302A;
+    --pfosten: #56606A;
+    --serie-1: #3987e5;
+    --serie-2: #d95926;
+    --gitter: #26303A;
+    --schatten: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --grund: #11161B;
+  --flaeche: #1A2128;
+  --flaeche-2: #242D36;
+  --flaeche-3: #2F3A45;
+  --tinte: #EAF0F5;
+  --tinte-2: #AAB7C3;
+  --tinte-3: #8391A0;
+  --linie: #2E3945;
+  --akzent: #6FA8F0;
+  --akzent-hell: #1E3450;
+  --akzent-tinte: #0B1522;
+  --gut: #4CC98A;
+  --gut-hell: #173526;
+  --schlecht: #FF8A80;
+  --schlecht-hell: #3D1F1D;
+  --umgebung: #26302A;
+  --pfosten: #56606A;
+  --serie-1: #3987e5;
+  --serie-2: #d95926;
+  --gitter: #26303A;
+  --schatten: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+}
+
+* { box-sizing: border-box; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+html, body { background: var(--grund); }
+body {
+  color: var(--tinte);
+  font: 16px/1.5 var(--text);
+  padding-inline: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--gelb); outline-offset: 2px; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.1; margin: 0; text-wrap: balance; letter-spacing: .005em; }
+p { margin: 0; }
+.app { max-width: 1080px; margin: 0 auto; padding-block: 12px 104px; }
+
+/* Kopf */
+.kopf {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding-block: 8px 18px;
+}
+.marke { display: flex; align-items: center; gap: 12px; }
+.marke svg { width: 40px; height: 40px; flex: none; }
+.marke b { display: block; font-family: var(--display); font-size: 30px; font-weight: 700; line-height: 1; letter-spacing: .01em; }
+.marke span { display: block; font-size: 13px; color: var(--tinte-2); }
+.wegweiser { display: flex; gap: 6px; flex-wrap: wrap; }
+.wegweiser button {
+  --spitze: 13px;
+  border: 0; background: var(--flaeche-2); color: var(--tinte);
+  font-family: var(--display); font-weight: 600; font-size: 18px; letter-spacing: .01em;
+  padding: 8px calc(var(--spitze) + 12px) 8px 14px; min-height: 44px;
+  clip-path: polygon(0 0, calc(100% - var(--spitze)) 0, 100% 50%, calc(100% - var(--spitze)) 100%, 0 100%);
+  border-radius: 6px 0 0 6px;
+  transition: background .15s;
+}
+.wegweiser button:hover { background: var(--flaeche-3); }
+.wegweiser button[aria-current="page"] { background: var(--gelb); color: var(--gelb-tinte); }
+.wegweiser button:focus-visible { outline: none; background: var(--gelb); color: var(--gelb-tinte); box-shadow: inset 0 -3px 0 var(--gelb-tinte); }
+
+.unten {
+  display: none;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  background: var(--flaeche); border-top: 1px solid var(--linie);
+  padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+  grid-template-columns: repeat(5, 1fr); gap: 2px;
+}
+.unten button {
+  border: 0; background: none; border-radius: 12px; min-height: 56px; padding: 4px 2px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  font-size: 12px; color: var(--tinte-2);
+}
+.unten svg { width: 24px; height: 24px; }
+.unten button[aria-current="page"] { background: var(--gelb); color: var(--gelb-tinte); font-weight: 700; }
+@media (max-width: 760px) {
+  .wegweiser { display: none; }
+  .unten { display: grid; }
+  .kopf { padding-block: 4px 12px; }
+}
+
+/* Allgemein */
+.ansicht { display: grid; gap: 20px; }
+.kopfzeile { display: flex; align-items: end; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; }
+.kopfzeile h2 { font-size: clamp(30px, 5vw, 40px); }
+.kopfzeile p { color: var(--tinte-2); max-width: 62ch; }
+.karte { background: var(--flaeche); border-radius: 16px; box-shadow: var(--schatten); padding: clamp(16px, 3vw, 28px); }
+.eyebrow { font-family: var(--zahl); font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--tinte-3); }
+.leise { color: var(--tinte-2); }
+.klein { font-size: 14px; }
+.quelle { font-family: var(--zahl); font-size: 14px; color: var(--tinte-3); letter-spacing: .02em; }
+
+.umschalter { display: inline-flex; background: var(--flaeche-2); border-radius: 12px; padding: 4px; gap: 4px; }
+.umschalter button { border: 0; background: none; border-radius: 9px; padding: 8px 16px; min-height: 40px; font-weight: 700; color: var(--tinte-2); }
+.umschalter button[aria-pressed="true"] { background: var(--flaeche); color: var(--tinte); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  border: 1px solid var(--linie); background: var(--flaeche); border-radius: 999px;
+  padding: 6px 14px; min-height: 40px; font-size: 15px; color: var(--tinte-2);
+}
+.chip[aria-pressed="true"] { background: var(--akzent); border-color: var(--akzent); color: var(--akzent-tinte); font-weight: 700; }
+
+.knopf {
+  border: 0; border-radius: 12px; padding: 12px 20px; min-height: 48px;
+  background: var(--akzent); color: var(--akzent-tinte); font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+}
+.knopf:hover { filter: brightness(1.08); }
+.knopf.zweit { background: var(--flaeche-2); color: var(--tinte); }
+.knopf[disabled] { opacity: .45; cursor: default; filter: none; }
+.knopfzeile { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+/* Start */
+.wald {
+  display: flex; align-items: flex-end; justify-content: center; gap: clamp(6px, 2vw, 22px);
+  height: 190px; padding-top: 6px; overflow: hidden;
+  border-bottom: 3px solid var(--pfosten);
+}
+.baum { display: flex; flex-direction: column; align-items: center; animation: wachsen .6s cubic-bezier(.2,.8,.2,1) both; }
+.baum .zeichen-wald { width: clamp(38px, 8vw, 66px); height: auto; display: block; filter: drop-shadow(0 2px 3px rgba(0,0,0,.12)); }
+.baum i { display: block; width: 5px; background: var(--pfosten); border-radius: 2px 2px 0 0; }
+.baum:nth-child(2) { animation-delay: .05s } .baum:nth-child(3) { animation-delay: .1s } .baum:nth-child(4) { animation-delay: .15s }
+.baum:nth-child(5) { animation-delay: .2s } .baum:nth-child(6) { animation-delay: .25s } .baum:nth-child(7) { animation-delay: .3s }
+@keyframes wachsen { from { transform: translateY(14px); } to { transform: none; } }
+@media (max-width: 480px) { .baum:nth-child(n+6) { display: none; } }
+
+.held { display: grid; gap: 14px; }
+.held h1 { font-size: clamp(38px, 7vw, 64px); font-weight: 700; max-width: 16ch; }
+.held p { font-size: 18px; color: var(--tinte-2); max-width: 58ch; }
+
+.bereiche { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.bereich { display: grid; grid-template-rows: auto auto 1fr auto; gap: 10px; padding: 20px; }
+.bereich .symbol { width: 52px; height: 52px; }
+.bereich .symbol .zeichen-symbol { width: 100%; height: 100%; object-fit: contain; display: block; }
+.bereich h3 { font-size: 26px; }
+.bereich .zahlen { font-family: var(--zahl); font-size: 16px; color: var(--tinte-2); font-variant-numeric: tabular-nums; }
+.balken { display: flex; height: 10px; border-radius: 99px; overflow: hidden; background: var(--flaeche-2); gap: 2px; }
+.balken span { display: block; height: 100%; }
+.balken .b-sicher { background: var(--gut); }
+.balken .b-arbeit { background: var(--gelb); }
+.balken .b-neu { background: var(--flaeche-3); }
+.balken .b-falsch { background: var(--schlecht); }
+@media (hover: none) { .tastenhinweis { display: none; } }
+.legende { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--tinte-2); }
+.legende span { display: inline-flex; align-items: center; gap: 6px; }
+.legende i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+.tipp { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; }
+.tipp .gross { font-family: var(--display); font-size: 44px; font-weight: 700; line-height: 1; color: var(--akzent); white-space: nowrap; }
+.sync { font-size: 14px; color: var(--tinte-3); display: flex; gap: 8px; align-items: center; }
+.sync i { width: 8px; height: 8px; border-radius: 50%; background: var(--tinte-3); display: inline-block; }
+.sync[data-stand="sync"] i { background: var(--gut); }
+
+/* Quiz */
+.quiz { display: grid; gap: 18px; }
+.quiz-kopf { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; }
+.frage { font-family: var(--display); font-size: clamp(24px, 4vw, 32px); font-weight: 600; line-height: 1.15; }
+.buehne { display: grid; place-items: center; padding: 8px 0; min-height: 190px; }
+.buehne .zeichen { width: min(200px, 50vw); height: auto; max-height: 220px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,.15)); }
+.buehne .zeichen.breit { width: min(280px, 72vw); }
+.buehne .zeichen.hoch { width: auto; height: 220px; }
+.optionen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 560px) { .optionen.text { grid-template-columns: 1fr; } }
+.option {
+  border: 2px solid var(--linie); background: var(--flaeche); border-radius: 14px;
+  padding: 12px 16px; min-height: 64px; text-align: left; line-height: 1.3;
+  display: flex; align-items: center; gap: 12px;
+}
+.option:hover:not([disabled]) { border-color: var(--akzent); background: var(--akzent-hell); }
+.option .taste {
+  flex: none; width: 26px; height: 26px; border-radius: 7px; background: var(--flaeche-2);
+  display: grid; place-items: center; font-family: var(--zahl); font-weight: 700; font-size: 14px; color: var(--tinte-2);
+}
+.option.bild { justify-content: center; min-height: 130px; padding: 12px; position: relative; }
+.option.bild .taste { position: absolute; top: 8px; left: 8px; }
+.option.bild .zeichen-klein { width: auto; height: 96px; max-width: 100%; object-fit: contain; }
+.option[disabled] { cursor: default; }
+.option.ist-richtig { border-color: var(--gut); background: var(--gut-hell); }
+.option.ist-falsch { border-color: var(--schlecht); background: var(--schlecht-hell); }
+.option .marke-ergebnis { margin-left: auto; font-weight: 700; font-size: 14px; }
+.option.ist-richtig .marke-ergebnis { color: var(--gut); }
+.option.ist-falsch .marke-ergebnis { color: var(--schlecht); }
+
+.rueckmeldung { border-radius: 14px; padding: 16px 18px; display: grid; gap: 8px; border-left: 6px solid; }
+.rueckmeldung.gut { background: var(--gut-hell); border-color: var(--gut); }
+.rueckmeldung.schlecht { background: var(--schlecht-hell); border-color: var(--schlecht); }
+.rueckmeldung strong { font-size: 18px; }
+.rueckmeldung .kopf-r { display: flex; gap: 14px; align-items: center; }
+.rueckmeldung .kopf-r .zeichen-mini { flex: none; object-fit: contain; }
+svg.zeichen-mini { width: 64px; height: auto; max-height: 96px; }
+img.zeichen-mini { width: auto; height: auto; max-width: 110px; max-height: 80px; }
+
+.eingabe { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.eingabe label { display: flex; align-items: center; gap: 10px; background: var(--flaeche-2); border-radius: 14px; padding: 6px 16px 6px 6px; }
+.eingabe input {
+  width: 9ch; min-height: 52px; border-radius: 10px; border: 2px solid var(--linie); background: var(--flaeche);
+  padding: 8px 12px; font-family: var(--zahl); font-size: 26px; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums;
+}
+.eingabe input:focus { border-color: var(--akzent); outline: none; }
+.eingabe .einheit { font-family: var(--zahl); font-size: 22px; font-weight: 600; color: var(--tinte-2); }
+
+.fortschritt-zeile { display: flex; gap: 16px; flex-wrap: wrap; font-family: var(--zahl); font-size: 16px; color: var(--tinte-2); font-variant-numeric: tabular-nums; }
+.fortschritt-zeile b { color: var(--tinte); font-weight: 700; }
+.optionen.lang { grid-template-columns: 1fr; }
+.optionen.lang .option { min-height: 56px; }
+.testbalken { height: 6px; border-radius: 99px; background: var(--flaeche-2); overflow: hidden; }
+.testbalken span { display: block; height: 100%; background: var(--akzent); transition: width .3s; }
+.test-wahl { display: grid; gap: 18px; }
+.test-wahl .feld { display: grid; gap: 8px; }
+.chip .anzahl { font-family: var(--zahl); font-size: 13px; opacity: .75; margin-left: 2px; }
+.ergebnis { display: grid; gap: 16px; }
+.ergebnis-kopf { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.ergebnis-zahl { font-family: var(--display); font-size: 72px; font-weight: 700; line-height: 1; color: var(--akzent); font-variant-numeric: tabular-nums; }
+.ergebnis-zahl small { font-size: 32px; color: var(--tinte-2); }
+.ergebnis h3 { font-size: 30px; }
+.fehler-karte { display: grid; gap: 4px; }
+.fehler-karte h3 { font-size: 26px; }
+.fehlerliste { list-style: none; margin: 0; padding: 0; display: grid; }
+.fehlerliste li { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--linie); align-items: start; }
+.fehlerliste li:first-child { border-top: 0; }
+.fehlerliste p { margin-top: 4px; }
+.fehlerbild { border: 0; background: none; padding: 0; display: grid; place-items: center; min-height: 64px; }
+
+/* Übersicht Schilder */
+.gruppe { display: grid; gap: 12px; }
+.gruppe h3 { font-size: 26px; }
+.gitter { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
+.kachel {
+  border: 1px solid var(--linie); background: var(--flaeche); border-radius: 14px; padding: 12px 10px 10px;
+  display: grid; grid-template-rows: 84px auto auto; gap: 6px; justify-items: center; text-align: center;
+}
+.kachel:hover { border-color: var(--akzent); }
+.kachel .zeichen-kachel { height: 80px; width: auto; max-width: 100%; object-fit: contain; }
+.zeichen-regel { height: 48px; width: auto; max-width: 110px; object-fit: contain; }
+.kachel .nr { font-family: var(--zahl); font-size: 13px; color: var(--tinte-3); display: flex; gap: 6px; align-items: center; }
+.kachel .name { font-size: 14px; line-height: 1.25; }
+.punkt { width: 9px; height: 9px; border-radius: 50%; display: inline-block; background: var(--flaeche-3); }
+.punkt.sicher { background: var(--gut); }
+.punkt.arbeit { background: var(--gelb); }
+
+dialog {
+  border: 0; border-radius: 20px; padding: 0; width: min(520px, calc(100vw - 32px));
+  background: var(--flaeche); color: var(--tinte); box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+dialog::backdrop { background: rgba(10, 16, 22, .55); }
+.dialog-innen { padding: 24px; display: grid; gap: 14px; }
+.dialog-innen .zeichen { width: 160px; height: auto; max-height: 200px; object-fit: contain; justify-self: center; }
+.dialog-innen .zeichen.breit { width: 260px; max-width: 100%; }
+.dialog-innen .zeichen.hoch { width: auto; height: 200px; }
+.dialog-innen h3 { font-size: 30px; }
+.schliessen { justify-self: end; }
+
+/* Vorfahrt */
+.vorfahrt-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 860px) { .vorfahrt-layout { grid-template-columns: 1fr; } }
+.kreuzung-rahmen { border-radius: 16px; overflow: hidden; background: var(--umgebung); max-width: 520px; width: 100%; justify-self: center; }
+.kreuzung { display: block; width: 100%; height: auto; touch-action: manipulation; }
+.fahrzeug { cursor: pointer; outline: none; }
+.fahrzeug .fokusrahmen { opacity: 0; }
+.fahrzeug:hover .fokusrahmen, .fahrzeug:focus-visible .fokusrahmen { opacity: 1; }
+.fahrzeug.ist-gewaehlt .fokusrahmen { opacity: 1; stroke: #fff; }
+.blinker { animation: blinken 1s steps(1) infinite; }
+@keyframes blinken { 50% { opacity: .15; } }
+.reihe { display: flex; gap: 8px; flex-wrap: wrap; min-height: 44px; align-items: center; }
+.pille { display: inline-flex; align-items: center; gap: 8px; background: var(--flaeche-2); border-radius: 999px; padding: 6px 12px 6px 6px; font-weight: 700; }
+.pille i { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-style: normal; color: #fff; font-family: var(--zahl); font-size: 14px; text-shadow: 0 0 2px rgba(0,0,0,.5); }
+.fzliste { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.fzliste li { display: flex; gap: 10px; align-items: center; }
+.fzliste .farbe { width: 18px; height: 18px; border-radius: 5px; flex: none; }
+.stufen { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; counter-reset: stufe; }
+.stufen li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; counter-increment: stufe; }
+.stufen li::before { content: counter(stufe); width: 34px; height: 34px; border-radius: 50%; background: var(--tinte); color: var(--grund); display: grid; place-items: center; font-family: var(--zahl); font-weight: 700; }
+.gruende { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+
+.regeln { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.regel { display: grid; gap: 8px; align-content: start; }
+.regel h3 { font-size: 24px; }
+.rangfolge { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; counter-reset: rang; }
+@media (max-width: 700px) { .rangfolge { grid-template-columns: 1fr 1fr; gap: 10px 0; } }
+.rangfolge li { counter-increment: rang; padding: 14px 16px; border-left: 1px solid var(--linie); display: grid; gap: 4px; }
+.rangfolge li:first-child { border-left: 0; }
+.rangfolge li::before { content: counter(rang); font-family: var(--display); font-size: 40px; font-weight: 700; line-height: 1; color: var(--akzent); }
+.rangfolge b { font-family: var(--display); font-size: 22px; font-weight: 600; }
+
+/* Formeln */
+.formeln { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.formel { display: grid; gap: 8px; align-content: start; }
+.formel .gleichung { font-family: var(--zahl); font-size: 24px; font-weight: 600; line-height: 1.2; }
+.formel .beispiel { font-family: var(--zahl); font-size: 17px; color: var(--tinte-2); font-variant-numeric: tabular-nums; }
+.rechner { display: grid; gap: 18px; }
+.regler { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; align-items: center; }
+.regler output { font-family: var(--display); font-size: 56px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; min-width: 4.2ch; }
+.regler output small { font-size: 22px; font-weight: 600; color: var(--tinte-2); }
+.regler input[type="range"] { width: 100%; accent-color: var(--akzent); min-height: 40px; }
+.werte { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.wert { background: var(--flaeche-2); border-radius: 12px; padding: 10px 14px; }
+.wert span { display: block; font-size: 13px; color: var(--tinte-2); }
+.wert b { font-family: var(--zahl); font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.diagramm { position: relative; }
+.diagramm svg { display: block; width: 100%; height: auto; overflow: visible; }
+.diagramm text { font-family: var(--zahl); fill: var(--tinte-2); font-size: 13px; }
+.diagramm .wertlabel { fill: var(--tinte); font-weight: 600; font-size: 15px; }
+.diagramm .seg { cursor: default; }
+.tooltip {
+  position: absolute; pointer-events: none; background: var(--tinte); color: var(--grund);
+  padding: 6px 10px; border-radius: 8px; font-size: 14px; white-space: nowrap; transform: translate(-50%, -110%);
+  opacity: 0; transition: opacity .1s;
+}
+.tooltip.an { opacity: 1; }
+.merksatz { border-left: 4px solid var(--gelb); padding: 4px 0 4px 14px; }
+
+/* Zahlen & Regeln */
+.themen { display: grid; gap: 22px; }
+.faktliste { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
+.faktliste li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 12px 0; border-top: 1px solid var(--linie); }
+.faktliste li:first-child { border-top: 0; }
+.faktliste .antwort { font-family: var(--zahl); font-size: 20px; font-weight: 600; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.faktliste .antwort.lang { white-space: normal; text-align: left; grid-column: 1 / -1; font-size: 17px; }
+.faktliste .erkl { grid-column: 1 / -1; font-size: 14px; color: var(--tinte-2); }
+
+.leer { text-align: center; padding: 30px 10px; color: var(--tinte-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="kopf">
+    <div class="marke">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="9" fill="#0A4E9B"/><path d="M20 6 L34 30 H6 Z" fill="#fff" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M20 12 L29 27.5 H11 Z" fill="#C8102E"/><rect x="18.6" y="27" width="2.8" height="8" fill="#fff"/></svg>
+      <div><b>Schilderwald</b><span>Führerschein-Theorie auffrischen</span></div>
+    </div>
+    <nav class="wegweiser" aria-label="Bereiche">
+      <button type="button" data-ziel="start">Start</button>
+      <button type="button" data-ziel="schilder">Schilder</button>
+      <button type="button" data-ziel="vorfahrt">Vorfahrt</button>
+      <button type="button" data-ziel="formeln">Formeln</button>
+      <button type="button" data-ziel="zahlen">Zahlen &amp; Regeln</button>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+    <section class="ansicht" id="v-start" aria-labelledby="t-start"></section>
+    <section class="ansicht" id="v-schilder" aria-labelledby="t-schilder" hidden></section>
+    <section class="ansicht" id="v-vorfahrt" aria-labelledby="t-vorfahrt" hidden></section>
+    <section class="ansicht" id="v-formeln" aria-labelledby="t-formeln" hidden></section>
+    <section class="ansicht" id="v-zahlen" aria-labelledby="t-zahlen" hidden></section>
+  </main>
+
+  <nav class="unten" aria-label="Bereiche">
+    <button type="button" data-ziel="start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Start</button>
+    <button type="button" data-ziel="schilder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 22 19H2z"/><path d="M12 19v3"/></svg>Schilder</button>
+    <button type="button" data-ziel="vorfahrt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 2v7H2M15 2v7h7M9 22v-7H2M15 22v-7h7"/></svg>Vorfahrt</button>
+    <button type="button" data-ziel="formeln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-3M10 2h4"/></svg>Formeln</button>
+    <button type="button" data-ziel="zahlen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 5.5C14 4 12.8 3.5 11.5 3.5 9.5 3.5 8 4.7 8 6.3c0 3.7 8 3 8 7.2 0 1.3-.9 2.3-2.2 2.8M9 18.5c1 1.5 2.2 2 3.5 2 2 0 3.5-1.2 3.5-2.8 0-3.7-8-3-8-7.2 0-1.3.9-2.3 2.2-2.8"/></svg>Zahlen</button>
+  </nav>
+</div>
+
+<dialog id="detail" aria-labelledby="detail-titel">
+  <div class="dialog-innen" id="detail-innen"></div>
+</dialog>
+
+<script src="schilder.js"></script>
+<script src="inhalte.js"></script>
+<script src="vorfahrt.js"></script>
+<script src="bilder.js"></script>
+<script src="app.js"></script>
+<!-- nur-web -->
+<script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+</script>
+<!-- /nur-web -->
+</body>
+</html>
