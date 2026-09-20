@@ -1,5 +1,5 @@
 /* Schilderwald – Service Worker (erzeugt von werkzeuge/web-bauen.mjs, nicht von Hand ändern) */
-const VERSION = 'schilderwald-c4f7809e98fc';
+const VERSION = 'schilderwald-91c410b25f11';
 const DATEIEN = ["./",
   "app.js",
   "bilder.js",

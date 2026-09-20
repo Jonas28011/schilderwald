@@ -480,9 +480,10 @@
   const vf = { modus: 'ueben', art: 'gemischt', lage: null, reihe: [], geprueft: false, nummer: 0, sitzung: { r: 0, f: 0 } };
   const VF_ARTEN = [
     { id: 'gemischt', name: 'Gemischt' }, { id: 'rvl', name: 'Rechts vor links' },
-    { id: 'gerade', name: 'Vorfahrtstraße' }, { id: 'knick', name: 'Abknickende Vorfahrt' }
+    { id: 'gerade', name: 'Vorfahrtstraße' }, { id: 'knick', name: 'Abknickende Vorfahrt' },
+    { id: 'ampel', name: 'Ampel und Polizei' }, { id: 'sonder', name: 'Bahn, Rad, Einsatz' }
   ];
-  const REGEL_ZEICHEN = [['102'], ['306', '301', '205', '206'], [], ['306', '1002-10'], ['215', '205'], ['325.2'], ['208', '308'], ['201', '151']];
+  const REGEL_ZEICHEN = [['102'], ['306', '301', '205', '206'], [], ['306', '1002-10'], ['215', '205'], ['325.2'], ['208', '308'], ['237', '138'], ['201', '151']];
 
   function neueVfLage() {
     vf.lage = Vorfahrt.neueLage(vf.art);
@@ -493,7 +494,7 @@
     el.innerHTML = `
       <div class="kopfzeile">
         <div><h2 id="t-vorfahrt">Vorfahrt</h2>
-        <p>Jede Kreuzung wird neu zusammengesetzt und nach § 8 und § 9 StVO ausgewertet – du lernst die Regeln, nicht die Bilder.</p></div>
+        <p>Jede Kreuzung wird neu zusammengesetzt und nach § 8, § 9, § 36, § 37 und § 38 StVO ausgewertet – du lernst die Regeln, nicht die Bilder.</p></div>
         <div class="umschalter" role="group" aria-label="Ansicht">
           <button type="button" data-vfmodus="ueben" aria-pressed="${vf.modus === 'ueben'}">Üben</button>
           <button type="button" data-vfmodus="regeln" aria-pressed="${vf.modus === 'regeln'}">Regeln</button>
@@ -540,7 +541,7 @@
           </div>
           <p class="frage">In welcher Reihenfolge fahren die Fahrzeuge?</p>
           <p class="leise">${Vorfahrt.lageText(L)} Tippe die Fahrzeuge der Reihe nach an. Wer gleichzeitig fahren darf, kannst du in beliebiger Folge wählen.</p>
-          <ul class="fzliste">${L.fahrzeuge.map((f, i) => `<li><span class="farbe" style="background:${f.farbe.hex}"></span><button type="button" class="chip" data-vfwahl="${i}" ${vf.geprueft ? 'disabled' : ''} aria-pressed="${vf.reihe.includes(f)}"><b>${f.farbe.name}</b></button><span class="leise">kommt von ${Vorfahrt.ARM_NAME[f.arm]}, ${Vorfahrt.WEG_TEXT[f.weg]}</span></li>`).join('')}</ul>
+          <ul class="fzliste">${L.fahrzeuge.map((f, i) => `<li><span class="farbe" style="background:${f.farbe.hex}"></span><button type="button" class="chip" data-vfwahl="${i}" ${vf.geprueft ? 'disabled' : ''} aria-pressed="${vf.reihe.includes(f)}"><b>${f.farbe.name}</b></button><span class="leise">${esc(Vorfahrt.fahrzeugText(f))}</span></li>`).join('')}</ul>
           <div style="display:grid;gap:6px">
             <div class="eyebrow">Deine Reihenfolge</div>
             <div class="reihe">${vf.reihe.length ? vf.reihe.map(pille).join('') : '<span class="leise klein">Noch nichts gewählt</span>'}</div>

@@ -401,6 +401,7 @@
     { titel: 'Kreisverkehr', text: 'Steht Zeichen 215 mit Zeichen 205, hat der Verkehr im Kreis Vorfahrt. Beim Einfahren wird nicht geblinkt, beim Ausfahren rechts. Die Mittelinsel darfst du nicht überfahren, im Kreis nicht halten.', quelle: 'StVO § 8 Abs. 1a, Anlage 2 Nr. 8' },
     { titel: 'Einfahren aus Grundstücken', text: 'Wer aus einem Grundstück, einer Fußgängerzone, einem verkehrsberuhigten Bereich oder über einen abgesenkten Bordstein einfährt, muss eine Gefährdung anderer ausschließen – er lässt also alle durch.', quelle: 'StVO § 10' },
     { titel: 'Engstellen', text: 'Wer links an einem Hindernis vorbeifährt, lässt den Gegenverkehr durch – außer Zeichen 208 oder 308 regeln es anders.', quelle: 'StVO § 6' },
+    { titel: 'Radweg und Abbiegen', text: 'Wer rechts abbiegt, kreuzt den Radweg neben der Fahrbahn. Radfahrer und E-Scooter, die geradeaus weiterfahren, haben Vorrang – auch wenn sie von hinten kommen. Mit Fahrzeugen über 3,5 t gilt innerorts beim Rechtsabbiegen Schrittgeschwindigkeit, wenn mit Radverkehr oder querenden Fußgängern zu rechnen ist.', quelle: 'StVO § 9 Abs. 3 und 6' },
     { titel: 'Bahn und Einsatzfahrzeuge', text: 'Am Andreaskreuz hat die Bahn Vorrang. Bei Blaulicht mit Einsatzhorn schaffen alle sofort freie Bahn. Stockt der Verkehr, fährst du trotz Vorfahrt oder Grün nicht in die Kreuzung ein.', quelle: 'StVO § 19, § 38, § 11' }
   ];
   const RANGFOLGE = [
